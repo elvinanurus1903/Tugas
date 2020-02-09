@@ -1,0 +1,10 @@
+.box{
+	width: 800px;
+	height: 800px;
+}
+.sidebar{
+	margin-top: 0px;
+	width: 200px;
+	height: 500px;
+	background-color: #A9A9A9;
+}
