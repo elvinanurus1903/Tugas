@@ -6,7 +6,14 @@
 <div class="table-responsive table-invoice">
           <table class="table table-striped">
  <tr>
-  
+<form action="search" method="get">
+  <div class="form-group">
+    <input type="search" name="search" class="form-control">
+    <span class="form-group-btn">
+      <button type="submit" class="btn btn-primary">Search</button>
+</span>
+</div>
+</form>
 
   <th width="20%">Nim</th>
     <th width="20%">Nama</th>
@@ -33,6 +40,6 @@
   </tr>
  @endforeach
 </table>
+{!! $data->appends(request()->except('page'))->render() !!}
 </div>
-{!! $data->links() !!}
 @endsection

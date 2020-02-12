@@ -14,9 +14,9 @@ class UploadsController extends Controller
      */
     public function index()
     {
-        $data = \App\Upload::latest()->paginate(5);
+        $data = \App\Upload::latest()->orderBy('nim','asc')->paginate(7);
         return view('data.index', compact('data'))
-                ->with('i', (request()->input('page', 1) - 1) * 5);
+                ->with('i', (request()->input('page', 1) - 1) * 7);
     }
 
     /**
@@ -27,6 +27,14 @@ class UploadsController extends Controller
     public function create()
     {
         return view('data.create');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $data = \App\Upload::where('nama','like','%'.$search.'%')->orderBy('nim','desc')->paginate(5);
+        return view('data.index', compact('data'))
+                ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
