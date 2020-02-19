@@ -4,6 +4,11 @@
 </head>
 
 <body>
+   @if(Session::has('msg'))
+  <b class="text-success">{{ Session::get('msg')}}</b>
+
+    
+  @endif
   <div id="app">
     <div class="main-wrapper">
       @include('layout.navbar')

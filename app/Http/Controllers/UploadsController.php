@@ -37,6 +37,14 @@ class UploadsController extends Controller
                 ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    function register(){
+        return view('register');
+    }
+
+    function login(){
+        return view('login');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

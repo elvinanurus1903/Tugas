@@ -12,8 +12,25 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
-Route::resource('upload','UploadsController');
-Route::get('/search', 'UploadsController@search');
+
+
+
+
+Route::group(['middleware' => ['logged']],function(){
+	Route::get('/login', 'UploadsController@login')->name('login');
+	Route::post('user/add', 'UserController@store');
+	Route::post('user/login', 'UserController@login');
+	Route::get('/search', 'UploadsController@search');
+	Route::get('/register', 'UploadsController@register');
+});
+
+Route::group(['middleware' => ['admin']],function(){
+	Route::resource('upload','UploadsController');
+	Route::get('/logout', 'UserController@logout');
+});
+
+
+
 

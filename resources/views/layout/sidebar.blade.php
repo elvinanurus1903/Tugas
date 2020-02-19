@@ -40,7 +40,6 @@
               <li class="menu-header">Akun</li>
               <li class="nav-item dropdown">
                 <a href="#" ><i class="far fa-user"></i> <span>Akun Saya</span></a>
-                <a href="#" ><i class="fas fa-th-large"></i> <span>Pengaturan</span></a>
               </li>
              
               <br>
@@ -50,7 +49,7 @@
               <br>
               <br>
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-              <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+              <a href="{{ URL::action('UserController@logout') }}" class="btn btn-primary btn-lg btn-block btn-icon-split">
                 <i class="fas fa-rocket"></i> Keluar
               </a>
             </div>
