@@ -12,9 +12,13 @@ class UploadsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = \App\Upload::latest()->orderBy('nim','asc')->paginate(7);
+
+        $data = \App\Upload::when($request->search, function($query) use($request){
+            $query->where('nama', 'LIKE', '%'.$request->search.'%');
+        })->orderBy('nim', 'desc')->paginate(10);
+
         return view('data.index', compact('data'))
                 ->with('i', (request()->input('page', 1) - 1) * 7);
     }
@@ -29,13 +33,13 @@ class UploadsController extends Controller
         return view('data.create');
     }
 
-    public function search(Request $request)
+  /*  public function search(Request $request) //harusnya jadi satu dengan fungsi index
     {
         $search = $request->get('search');
         $data = \App\Upload::where('nama','like','%'.$search.'%')->orderBy('nim','desc')->paginate(5);
         return view('data.index', compact('data'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
-    }
+    }*/
 
     function register(){
         return view('register');

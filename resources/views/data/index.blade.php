@@ -6,14 +6,14 @@
 <div class="table-responsive table-invoice">
           <table class="table table-striped">
  <tr>
-<form action="search" method="get">
-  <div class="form-group">
-    <input type="search" name="search" class="form-control">
-    <span class="form-group-btn">
-      <button type="submit" class="btn btn-primary">Search</button>
-</span>
-</div>
-</form>
+ <form method="GET" class="form-inline">
+              <div class="form-group">
+                <input type="text" name="search" class="form-control" placeholder="Search" value="{{ request()->get('search') }}">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Search</button>
+              </div>
+            </form>
 
   <th width="20%">Nim</th>
     <th width="20%">Nama</th>
