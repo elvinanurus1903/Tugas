@@ -22,7 +22,6 @@ Route::group(['middleware' => ['logged']],function(){
 	Route::get('/login', 'UploadsController@login')->name('login');
 	Route::post('user/add', 'UserController@store');
 	Route::post('user/login', 'UserController@login');
-	Route::get('/search', 'UploadsController@search');
 	Route::get('/register', 'UploadsController@register');
 });
 
