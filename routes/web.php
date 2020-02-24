@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('front/tambah');
 });
 
 
@@ -29,7 +29,7 @@ Route::group(['middleware' => ['admin']],function(){
 	Route::resource('upload','UploadsController');
 	Route::get('/logout', 'UserController@logout');
 });
-
+Route::resource('front','FrontController');
 
 
 
