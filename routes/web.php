@@ -28,6 +28,9 @@ Route::group(['middleware' => ['logged']],function(){
 Route::group(['middleware' => ['admin']],function(){
 	Route::resource('upload','UploadsController');
 	Route::get('/logout', 'UserController@logout');
+	Route::get('/siswa', 'SiswaController@index');
+	Route::get('excel/export_excel', 'excelController@export_excel');
+	Route::get('excel/cetak_pdf', 'excelController@cetak_pdf');
 });
 Route::resource('front','FrontController');
 

@@ -6,6 +6,8 @@
 <div class="table-responsive table-invoice">
           <table class="table table-striped">
  <tr>
+  <a href="excel/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+  <a href="excel/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
  <form method="GET" class="form-inline">
               <div class="form-group">
                 <input type="text" name="search" class="form-control" placeholder="Search" value="{{ request()->get('search') }}">
